@@ -6,16 +6,13 @@
 <body>
     <div id="vue-app">
     
-        <h1>Events</h1>
-
-        <div id="canvas" @mousemove="updateXY">
-            {{x}}, {{y}}
-        </div>
         <label>Name</label>
-        <input type="text" @keyup.enter="logName">
+        <input type="text" v-model="name">
+        <span>{{name}}</span>
 
         <label>Age</label>
-        <input type="text" @keyup.alt.enter="logAge"> 
+        <input type="text" v-model="age">
+        {{age}}
 
     </div>
 <script src="app.js"></script>

@@ -5,14 +5,16 @@
 </head>
 <body>
     <div id="vue-app">
-        <h1>Dynamic CSS</h1>
-        <button @click="nearby = !nearby">Toggle Nearby</button>
-        <button @click="available = !available">Toggle Available</button>
-        <div v-bind:class="computedClasses">
-            <span>
-                Ryu
-            </span>
-        </div>
+        <h1>Conditionals</h1>
+        <button @click="error = !error">Toggle Error</button>
+        <button @click="success = !success">Toggle Success</button>
+
+        <!-- <p v-if="error">There has been an error.</p>
+        <p v-else-if="success">Great success!</p> -->
+
+        <p v-show="error">There has been an error</p>
+        <p v-show="success">Great success!</p>
+
     </div>
 <script src="app.js"></script>
 

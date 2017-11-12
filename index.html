@@ -4,18 +4,15 @@
     <script src="https://unpkg.com/vue"></script>
 </head>
 <body>
-    <div id="vue-app"> 
-        <h1>Keyboard Events</h1>
-
-        <div id="canvas" @mousemove="updateXY">
-            {{x}}, {{y}}
+    <div id="vue-app">
+        <h1>Dynamic CSS</h1>
+        <button @click="nearby = !nearby">Toggle Nearby</button>
+        <button @click="available = !available">Toggle Available</button>
+        <div v-bind:class="computedClasses">
+            <span>
+                Ryu
+            </span>
         </div>
-        <label>Name</label>
-        <input type="text" @keyup.enter="logName">
-
-        <label>Age</label>
-        <input type="text" @keyup.alt.enter="logAge"> 
-
     </div>
 <script src="app.js"></script>
 

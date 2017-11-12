@@ -5,31 +5,18 @@
 </head>
 <body>
     <div id="vue-app">
-        <h1>Looping through lists</h1>
-        
-        <ul>
-            <li v-for="character in characters">
-                {{character}}
-            </li>
-        </ul>
+       <div id="bag" v-bind:class="{burst: ended}">
 
-        <ul>
-            <li v-for="(ninja, index) in ninjas">
-                {{index}} . {{ninja.name}} - {{ninja.age}}
-            </li>
-        </ul>
+       </div>
 
-         <!-- Template element wont be render in dom, only what's inside -->
-        <template v-for="ninja in ninjas">
-            <h3>{{ninja.name}}</h3>
-            <p>{{ninja.age}}</p>
-        </template>
+       <div id="bag-health">
+            <div v-bind:style="{width : health + '%'}"></div>
+       </div>
 
-        <template v-for="ninja in ninjas">
-            <div v-for="(val, key) in ninja">
-                <p>Key and val = {{key}} {{val}}</p>
-            </div>
-        </template>
+       <div id="controls">
+           <button @click="punch" v-if="!ended">Punch</button>
+           <button @click="restart">Restart</button>
+       </div>
 
     </div>
 <script src="app.js"></script>

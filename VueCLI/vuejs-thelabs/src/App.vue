@@ -1,21 +1,24 @@
 <template>
   <div>
     <h1>{{title}}</h1>
-    <p>{{greeting()}}</p>
+    <ninjas></ninjas>
+    <local-ninjas></local-ninjas>
   </div>
 </template>
 
 <script>
+import LocalNinjas from "./LocalNinjas.vue";
+
 export default {
+  components: {
+    'localNinjas': LocalNinjas
+  },
   data () {
     return {
-      title: "My first Vue file."
+      title: "Ninja App"
     }
   },
   methods: {
-    greeting: function() {
-      return "Hi from my first Vue app."
-    }
   }
 }
 </script>

@@ -26,9 +26,16 @@
            <select v-model="blog.author">
                <option v-for="author in authors">{{author}}</option>
            </select>
+           <button @click.prevent="post">Add Blog</button>
       </form>
 
-        <div id="preview">
+        <div v-if="submitted">
+            <h3>
+                Thanks for adding your post.
+            </h3>
+        </div>
+
+        <div id="preview" v-if="!submitted">
             <h3>Preview Blog</h3>
             <p>Blog Title: {{blog.title}}</p>
             <p>Blog Content:</p>
@@ -53,8 +60,24 @@ export default {
               categories: [],
               author: ""
           },
-          authors: ["Harko", "Vuer", "Angular"]
-
+          authors: ["Harko", "Vuer", "Angular"],
+          submitted: false
+      }
+  },
+  methods: {
+      post: function() {
+          this.$http.post('http://jsonplaceholder.typicode.com/posts', {
+              title: this.blog.title,
+              body: this.blog.content,
+              userId: 1
+          }).then(function(data){
+              this.submitted = true;
+              this.blog.title = "";
+              this.blog.content = "";
+              this.blog.categories = []
+              this.blog.author = "";
+              console.log(data);
+          });
       }
   }
 }

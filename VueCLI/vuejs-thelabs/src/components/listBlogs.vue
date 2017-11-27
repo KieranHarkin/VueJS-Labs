@@ -25,8 +25,9 @@ export default {
 
   },
   created() {
-    this.$http.get('https://jsonplaceholder.typicode.com/posts').then(function(data) {
-      this.blogs = data.body.slice(0, 10);      
+    this.$http.get('https://vue-playlist-c49fd.firebaseio.com/posts.json').then(function(data) {
+      console.log("data", data);
+      // this.blogs = data.body.slice(0, 10);      
     });
   },
   filters: {

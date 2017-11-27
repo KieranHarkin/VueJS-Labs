@@ -68,7 +68,6 @@ export default {
       post: function() {
           this.$http.post('https://vue-playlist-c49fd.firebaseio.com/posts.json', this.blog)
           .then(function(data){
-              console.log("data ", data);
               this.submitted = true;
               this.blog.title = "";
               this.blog.content = "";

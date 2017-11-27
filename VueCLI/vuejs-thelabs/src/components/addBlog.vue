@@ -66,17 +66,14 @@ export default {
   },
   methods: {
       post: function() {
-          this.$http.post('http://jsonplaceholder.typicode.com/posts', {
-              title: this.blog.title,
-              body: this.blog.content,
-              userId: 1
-          }).then(function(data){
+          this.$http.post('https://vue-playlist-c49fd.firebaseio.com/posts.json', this.blog)
+          .then(function(data){
+              console.log("data ", data);
               this.submitted = true;
               this.blog.title = "";
               this.blog.content = "";
               this.blog.categories = []
               this.blog.author = "";
-              console.log(data);
           });
       }
   }
